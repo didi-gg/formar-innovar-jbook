@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Análisis de Comportamiento Docente - Sede Fusagasugá &#8212; Formar Innovar · Educational Analytics Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=bb6f747e"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03_data_analysis/eda_analysis_teacher_behavior/fusagasugá/README';</script>
+    <link rel="icon" href="../../../../_static/favicon.ico"/>
+    <link rel="index" title="Índice" href="../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../search.html" />
+    <link rel="next" title="Análisis de Comportamiento Docente - Sede Girardot" href="../girardot/README.html" />
+    <link rel="prev" title="Análisis de Comportamiento en Moodle" href="../../eda_analysis_moodle_behavior/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../00_introduction/README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/FICC.png" class="logo__image only-light" alt="Formar Innovar · Educational Analytics Project - Home"/>
+    <script>document.write(`<img src="../../../../_static/FICC.png" class="logo__image only-dark" alt="Formar Innovar · Educational Analytics Project - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tratamiento de datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../01_data_treatment/01_school_recommendations.html">Guía de tratamiento de datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de Datos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../eda_analysis_students/README.html">Estudiantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eda_grades/README.html">Calificaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eda_courses/README.html">Cursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eda_analysis_dropout/README.html">Retiro de Estudiantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eda_analysis_moodle_behavior/README.html">Uso de Moodle</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Docentes Fusagasugá</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../girardot/README.html">Docentes Girardot</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asignaturas principales</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../eda_analysis_moodle/00_missing_values/README.html">Missing Values Analysis (Moodle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eda_analysis_moodle/01_features_selection/README.html">Feature Selection (Moodle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eda_analysis_moodle/02_statistical_filtering/README.html">Statistical Filtering (Moodle)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eda_analysis_moodle/03_data_visualization/README.html">Data Visualization (Moodle)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análisis de Comportamiento Docente - Sede Fusagasugá</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-general-de-patrones-de-calificacion">1. Análisis General de Patrones de Calificación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-general-por-asignatura">2. Distribución General por Asignatura</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-por-docente-y-asignatura">3. Análisis por Docente y Asignatura</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-por-docente-y-grado">4. Análisis por Docente y Grado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-detallado-docente-asignatura-grado">5. Análisis Detallado Docente-Asignatura-Grado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="analisis-de-comportamiento-docente-sede-fusagasuga">
+<h1>Análisis de Comportamiento Docente - Sede Fusagasugá<a class="headerlink" href="#analisis-de-comportamiento-docente-sede-fusagasuga" title="Link to this heading">#</a></h1>
+<section id="resumen">
+<h2>Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
+<p>Este análisis explora los patrones de calificación y comportamiento pedagógico de los docentes en la sede de Fusagasugá, evaluando la consistencia, distribución de calificaciones y patrones de evaluación.</p>
+<p><strong>Sede:</strong> Fusagasugá<br />
+<strong>Total docentes analizados:</strong> 20<br />
+<strong>Análisis incluye:</strong> Patrones de calificación, distribución por asignatura, análisis por grado, métricas de Moodle</p>
+</section>
+<hr class="docutils" />
+<section id="analisis-general-de-patrones-de-calificacion">
+<h2>1. Análisis General de Patrones de Calificación<a class="headerlink" href="#analisis-general-de-patrones-de-calificacion" title="Link to this heading">#</a></h2>
+<p><img alt="Análisis de Patrones de Calificación" src="../../../../_images/analisis_patrones_calificacion_docentes_fusagasuga.png" /></p>
+<p>Evaluación integral de los patrones de calificación de todos los docentes de la sede, identificando consistencias y variabilidades en la evaluación.</p>
+<section id="interpretacion">
+<h3>Interpretación<a class="headerlink" href="#interpretacion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Promedio de Calificaciones por Docente:</strong> Distribución de promedios de calificaciones asignadas por cada docente</p></li>
+<li><p><strong>Porcentaje de Notas Altas (≥80):</strong> Proporción de calificaciones altas otorgadas por cada docente</p></li>
+<li><p><strong>Nota Máxima por Docente:</strong> Calificación más alta registrada por cada docente</p></li>
+<li><p><strong>Nota Mínima por Docente:</strong> Calificación más baja registrada por cada docente</p></li>
+<li><p><strong>Mediana de Calificaciones:</strong> Valor central de las calificaciones por docente</p></li>
+<li><p><strong>Porcentaje de Notas Bajas (&lt;60):</strong> Proporción de calificaciones bajas por docente</p></li>
+<li><p><strong>Desviación Estándar:</strong> Variabilidad en las calificaciones de cada docente</p></li>
+<li><p><strong>Distribución de Promedios:</strong> Histograma general de promedios docentes</p></li>
+<li><p><strong>Métricas de Moodle:</strong> Actividad docente en la plataforma virtual</p></li>
+</ul>
+</section>
+<section id="conclusiones">
+<h3>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Todos los docentes presenta promedios entre 82 y 90, todos por encima del umbral de 75.</p></li>
+<li><p>Todos los docentes presentan más del 30% de notas altas.</p></li>
+<li><p>Casi todos los docentes registran notas máximas superiores a 95, superando el umbral, destacan 2 docentes que no registran calificaciones &gt;= 95.</p></li>
+<li><p>La distribución de promedios está concentrada entre 82 y 88, sin valores extremos</p></li>
+<li><p>No hay un patrón generalizad de vistas del docente al contenido de Moodle durante la planificación.</p></li>
+<li><p>La mayoría de los docentes se mantiene por debajo de 10 puntos en desviación estándar, lo que denota estabilidad en las calificaciones.</p></li>
+<li><p>Se observan grandes diferencias en el uso de Moodle.</p></li>
+</ul>
+</section>
+</section>
+<section id="distribucion-general-por-asignatura">
+<h2>2. Distribución General por Asignatura<a class="headerlink" href="#distribucion-general-por-asignatura" title="Link to this heading">#</a></h2>
+<p><img alt="Boxplot General por Asignatura" src="../../../../_images/boxplot_general_por_asignatura_fusagasuga.png" /></p>
+<p>Análisis de la distribución de calificaciones agrupadas por asignatura, mostrando las diferencias en los patrones de evaluación entre materias.</p>
+<section id="id1">
+<h3>Interpretación<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Distribución por Asignatura:</strong> Boxplots comparativos de calificaciones por materia</p></li>
+<li><p><strong>Línea de Promedio General:</strong> Referencia del promedio general de todas las calificaciones</p></li>
+<li><p><strong>Variabilidad entre Asignaturas:</strong> Diferencias en la dispersión de calificaciones por materia</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Conclusiones<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>El promedio general de calificaciones es 85.6, representado por la línea roja punteada.</p></li>
+<li><p>En términos generales, la mayoría de las asignaturas se encuentran cerca o por encima del promedio, lo cual indica buen rendimiento académico generalizado.</p></li>
+</ul>
+</section>
+</section>
+<section id="analisis-por-docente-y-asignatura">
+<h2>3. Análisis por Docente y Asignatura<a class="headerlink" href="#analisis-por-docente-y-asignatura" title="Link to this heading">#</a></h2>
+<p><img alt="Boxplots por Docente y Asignatura" src="../../../../_images/boxplots_docentes_por_asignatura_fusagasuga.png" /></p>
+<p>Evaluación detallada de los patrones de calificación de cada docente por asignatura.</p>
+<section id="id3">
+<h3>Interpretación<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Boxplots Individuales:</strong> Cada subplot muestra la distribución de calificaciones de un docente por asignatura</p></li>
+<li><p><strong>Promedio del Docente:</strong> Línea de referencia del promedio general de cada docente</p></li>
+<li><p><strong>Variabilidad por Asignatura:</strong> Diferentes patrones de calificación según la materia</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Conclusiones<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>La mayoría de los docentes presentan medianas por encima del promedio general (85.5), lo que refleja buen desempeño académico en general.</p></li>
+<li><p>Las distribuciones son bastante homogéneas, es decir, no hay grandes diferencias entre las materias de un mismo docente en la mayoría de los casos.</p></li>
+<li><p>Se observan pocos valores atípicos, lo que sugiere consistencia en la calificación de los estudiantes.</p></li>
+</ul>
+</section>
+</section>
+<section id="analisis-por-docente-y-grado">
+<h2>4. Análisis por Docente y Grado<a class="headerlink" href="#analisis-por-docente-y-grado" title="Link to this heading">#</a></h2>
+<p><img alt="Boxplots por Docente y Grado" src="../../../../_images/boxplots_docentes_por_grado_fusagasuga.png" /></p>
+<p>Análisis de los patrones de calificación de cada docente según el grado académico.</p>
+<section id="id5">
+<h3>Interpretación<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Distribución por Grado:</strong> Boxplots mostrando calificaciones de cada docente por grado</p></li>
+<li><p><strong>Adaptación Pedagógica:</strong> Diferentes enfoques de evaluación según el nivel académico</p></li>
+<li><p><strong>Consistencia por Grado:</strong> Uniformidad en las calificaciones dentro de cada grado</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Conclusiones<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>La mayoría de los docentes mantienen promedios por encima del promedio general, lo que indica un buen rendimiento sostenido entre los grados.</p></li>
+<li><p>Se observa consistencia en las calificaciones en varios docentes, con medianas cercanas al promedio general y pocas diferencias entre grados.</p></li>
+<li><p>Hay pocos valores atípicos, lo que sugiere estabilidad en la evaluación.</p></li>
+</ul>
+</section>
+</section>
+<section id="analisis-detallado-docente-asignatura-grado">
+<h2>5. Análisis Detallado Docente-Asignatura-Grado<a class="headerlink" href="#analisis-detallado-docente-asignatura-grado" title="Link to this heading">#</a></h2>
+<p><img alt="Boxplots Docente-Asignatura-Grado" src="../../../../_images/boxplots_docentes_asignatura_grado_fusagasuga.png" /></p>
+<p>Análisis granular de las combinaciones específicas docente-asignatura-grado, proporcionando la vista más detallada de los patrones de evaluación.</p>
+<section id="id7">
+<h3>Interpretación<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Combinaciones Específicas:</strong> Cada subplot representa una combinación única de docente, asignatura y grado</p></li>
+<li><p><strong>Patrones Granulares:</strong> Identificación de patrones muy específicos de calificación</p></li>
+<li><p><strong>Variabilidad Detallada:</strong> Análisis de la dispersión en contextos muy específicos</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Conclusiones<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Se observan algunas variaciones entre grados y asignaturas, pero sin desviaciones extremas; la tendencia general es de homogeneidad y resultados positivos.</p></li>
+<li><p>Hay pocos valores atípicos, lo que sugiere una evaluación coherente dentro de cada asignatura.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/03_data_analysis/eda_analysis_teacher_behavior/fusagasugá"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../eda_analysis_moodle_behavior/README.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Análisis de Comportamiento en Moodle</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../girardot/README.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Análisis de Comportamiento Docente - Sede Girardot</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-general-de-patrones-de-calificacion">1. Análisis General de Patrones de Calificación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-general-por-asignatura">2. Distribución General por Asignatura</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-por-docente-y-asignatura">3. Análisis por Docente y Asignatura</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-por-docente-y-grado">4. Análisis por Docente y Grado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-detallado-docente-asignatura-grado">5. Análisis Detallado Docente-Asignatura-Grado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Data Analytics Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright © 2025 Formar Innovar.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

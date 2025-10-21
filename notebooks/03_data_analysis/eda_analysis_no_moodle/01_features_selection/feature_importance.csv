@@ -1,0 +1,45 @@
+feature,importance
+nivel_motivación,0.10445243
+intensidad,0.04826242
+unique_students_count,0.040262528
+educación_profesional,0.038766388
+teacher_experiencia_nivel,0.037729688
+es_colombiano,0.032513905
+age,0.030184817
+tiene_rol_adicional,0.027977357
+participacion_clase,0.02785056
+teacher_experiencia_nivel_ficc,0.026673796
+total_hours,0.024844058
+nivel_confianza,0.023618774
+update_events_count,0.022968039
+edad_estudiante,0.022821821
+es_masculino,0.021408025
+horas_semana_estudio_casa,0.021329852
+total_subjects,0.021055266
+total_hermanos,0.021032063
+apoyo_familiar,0.020276336
+actividad_artes,0.019894907
+proyeccion_Sociales y Humanidades,0.019825334
+medio_transporte_vehiculo_privado,0.019573396
+period,0.019475576
+es_alquiler,0.019373916
+actividad_deportes,0.019236458
+actividad_idiomas,0.018888399
+estrato,0.018581185
+proyeccion_Arte y Entretenimiento,0.01849215
+familia_otros,0.018085869
+familia_padre,0.018077774
+proyeccion_STEM,0.017551208
+interes_estudios_superiores,0.01753458
+proyeccion_Indefinido o No Sabe,0.017263936
+proyeccion_Ciencias de la Salud,0.016205953
+proyeccion_Deportes,0.0159582
+proyeccion_Negocios y Emprendimiento,0.014959821
+proyeccion_Diseño y Arquitectura,0.014404626
+familia_madre,0.014091476
+zona_vivienda_urbana,0.013992901
+proyeccion_Seguridad y Fuerzas Armadas,0.01357746
+año_ingreso,0.012005793
+es_antiguo,0.008920996
+tiene_enfermedades,0.0
+tiene_nee,0.0

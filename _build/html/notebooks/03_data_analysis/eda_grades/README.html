@@ -1,0 +1,887 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Análisis de Calificaciones Históricas 2021-2025 &#8212; Formar Innovar · Educational Analytics Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=bb6f747e"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03_data_analysis/eda_grades/README';</script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" />
+    <link rel="next" title="Análisis de Cursos en Moodle" href="../eda_courses/README.html" />
+    <link rel="prev" title="Análisis Exploratorio de Datos de Estudiantes 2024-2025" href="../eda_analysis_students/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../00_introduction/README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/FICC.png" class="logo__image only-light" alt="Formar Innovar · Educational Analytics Project - Home"/>
+    <script>document.write(`<img src="../../../_static/FICC.png" class="logo__image only-dark" alt="Formar Innovar · Educational Analytics Project - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tratamiento de Datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01_data_treatment/01_school_recommendations.html">Guía de Tratamiento de Datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de Datos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_students/README.html">Estudiantes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Calificaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_courses/README.html">Cursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_dropout/README.html">Retiro de Estudiantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle_behavior/README.html">Uso de Moodle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_teacher_behavior/fusagasuga/README.html">Docentes Fusagasugá</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_teacher_behavior/girardot/README.html">Docentes Girardot</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asignaturas Principales (Con Moodle)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/00_missing_values/README.html">Valores Faltantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/01_features_selection/README.html">Selección de Caracteristicias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/02_statistical_filtering/README.html">Filtrado Estadístico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/03_data_visualization/README.html">Exploración de los Datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras Asignaturas (Sin Moodle)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/00_missing_values/README.html">Valores Faltantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/01_features_selection/README.html">Selección de Caracteristicias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/02_statistical_filtering/README.html">Filtrado Estadístico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/03_data_visualization/README.html">Exploración de los Datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análisis de Calificaciones Históricas 2021-2025</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-niveles-de-desempeno-por-periodo-y-sede">1. Distribución de Niveles de Desempeño por Período y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-calificaciones-por-periodo-y-sede">2. Distribución de Calificaciones por Período y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#densidad-de-competencias-por-sede">3. Densidad de Competencias por Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporcion-de-reprobacion-por-grado-y-sede">4. Proporción de Reprobación por Grado y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporcion-de-reprobacion-por-asignatura-grado-y-sede">5. Proporción de Reprobación por Asignatura-Grado y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporciones-de-excelencia-por-grado-y-sede">6. Proporciones de Excelencia por Grado y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-niveles-por-grado-y-sede">7. Distribución de Niveles por Grado y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucion-temporal-de-asignaturas-por-sede">8. Evolución Temporal de Asignaturas por Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-entre-competencias-y-calificacion-final">9. Relación entre Competencias y Calificación Final</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sede-fusagasuga">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sede-girardot">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="analisis-de-calificaciones-historicas-2021-2025">
+<h1>Análisis de Calificaciones Históricas 2021-2025<a class="headerlink" href="#analisis-de-calificaciones-historicas-2021-2025" title="Link to this heading">#</a></h1>
+<section id="resumen">
+<h2>Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
+<p>Este análisis explora las calificaciones históricas de estudiantes.</p>
+<p><strong>Período analizado:</strong> 2021-1 a 2025-1<br />
+<strong>Sedes:</strong> Fusagasugá, Girardot<br />
+<strong>Grados:</strong> 1 - 11</p>
+</section>
+<hr class="docutils" />
+<section id="distribucion-de-niveles-de-desempeno-por-periodo-y-sede">
+<h2>1. Distribución de Niveles de Desempeño por Período y Sede<a class="headerlink" href="#distribucion-de-niveles-de-desempeno-por-periodo-y-sede" title="Link to this heading">#</a></h2>
+<p><img alt="Niveles de Desempeño" src="../../../_images/performance_levels_by_period.png" /></p>
+<p>Gráfico de barras apiladas que muestra la evolución temporal de los niveles de desempeño académico por período y sede.</p>
+<section id="interpretacion">
+<h3>Interpretación<a class="headerlink" href="#interpretacion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Escala de niveles:</strong></p>
+<ul>
+<li><p>🔴 <strong>Bajo (&lt;60):</strong> Estudiantes reprobados</p></li>
+<li><p>🟠 <strong>Básico (60-69):</strong> Desempeño apenas aprobatorio</p></li>
+<li><p>🔵 <strong>Alto (70-89):</strong> Buen desempeño académico</p></li>
+<li><p>🟢 <strong>Superior (≥90):</strong> Excelencia académica</p></li>
+</ul>
+</li>
+<li><p><strong>Formato:</strong> Los porcentajes muestran la distribución relativa de estudiantes en cada nivel por período académico.</p></li>
+<li><p><strong>Análisis temporal:</strong> Permite identificar tendencias de mejora o deterioro en el desempeño a lo largo del tiempo.</p></li>
+</ul>
+</section>
+<section id="conclusiones">
+<h3>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ambas sedes tienden hacia una estructura más homogénea con predominio del nivel alto, lo que sugiere consistencia en la evaluación institucional.</p></li>
+<li><p>La baja proporción de niveles bajo y básico refleja control sobre la reprobación.</p></li>
+<li><p>En Girardot se observa menor proporción de estudiantes en nivel superior, lo que puede indicar diferencias pedagógicas.</p></li>
+</ul>
+</section>
+</section>
+<section id="distribucion-de-calificaciones-por-periodo-y-sede">
+<h2>2. Distribución de Calificaciones por Período y Sede<a class="headerlink" href="#distribucion-de-calificaciones-por-periodo-y-sede" title="Link to this heading">#</a></h2>
+<p><img alt="Distribución de Calificaciones" src="../../../_images/grades_distribution_by_periodo_sede.png" /></p>
+<p>Boxplots que muestran la distribución de las calificaciones finales por período académico y sede.</p>
+<section id="id1">
+<h3>Interpretación<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Componentes del boxplot:</strong></p>
+<ul>
+<li><p><strong>Línea central (mediana):</strong> Calificación donde el 50% está por encima y 50% por debajo</p></li>
+<li><p><strong>Caja:</strong> Rango intercuartílico (Q1 a Q3) - donde se concentra el 50% central de los datos</p></li>
+<li><p><strong>Bigotes:</strong> Extensión hasta valores mínimos y máximos (dentro de 1.5×IQR)</p></li>
+<li><p><strong>Puntos:</strong> Valores atípicos (outliers)</p></li>
+</ul>
+</li>
+<li><p><strong>Líneas de referencia:</strong></p>
+<ul>
+<li><p>🔴 <strong>60:</strong> Umbral de aprobación (Bajo)</p></li>
+<li><p>🟠 <strong>70:</strong> Inicio de desempeño Básico</p></li>
+<li><p>🟢 <strong>80:</strong> Inicio de desempeño Alto</p></li>
+<li><p>🔵 <strong>90:</strong> Inicio de desempeño Superior</p></li>
+</ul>
+</li>
+<li><p><strong>Mediana alta (&gt;80):</strong> Indica un buen desempeño general del grupo</p></li>
+<li><p><strong>Caja amplia:</strong> Alta variabilidad en el rendimiento estudiantil</p></li>
+<li><p><strong>Mediana cerca de 60:</strong> Señal de alerta - grupo en riesgo</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Conclusiones<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fusagasugá mantiene medianas altas y estables, pero presenta una mayor cantidad de valores atípicos, especialmente hacia la zona baja (&lt; 60). Esto sugiere más casos individuales de bajo desempeño, aunque sin afectar la tendencia general del grupo.</p></li>
+<li><p>Girardot tiene medianas levemente inferiores pero con menor cantidad de valores extremos, indicando una distribución más compacta y homogénea.</p></li>
+<li><p>Mientras Fusagasugá evidencia un rendimiento globalmente alto con mayor dispersión individual, Girardot refleja un comportamiento más uniforme, aunque con medianas ligeramente menores.</p></li>
+</ul>
+</section>
+</section>
+<section id="densidad-de-competencias-por-sede">
+<h2>3. Densidad de Competencias por Sede<a class="headerlink" href="#densidad-de-competencias-por-sede" title="Link to this heading">#</a></h2>
+<p><img alt="Densidad de Competencias" src="../../../_images/competencias_density_by_sede.png" /></p>
+<p>Gráficos de densidad que muestran la distribución de calificaciones en las cuatro competencias evaluadas: Axiológica, Cognitiva, Procedimental y Actitudinal, comparando entre sedes.</p>
+<section id="id3">
+<h3>Interpretación<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Curva de densidad:</strong> Muestra dónde se concentran las calificaciones</p>
+<ul>
+<li><p><strong>Pico alto y estrecho:</strong> Calificaciones muy homogéneas</p></li>
+<li><p><strong>Curva ancha y plana:</strong> Alta dispersión de resultados</p></li>
+</ul>
+</li>
+<li><p><strong>Líneas verticales discontinuas:</strong> Indican la media (μ) por sede</p></li>
+<li><p><strong>Estadísticas incluidas:</strong></p>
+<ul>
+<li><p><strong>μ (media):</strong> Promedio de la competencia</p></li>
+<li><p><strong>M (mediana):</strong> Valor central de la distribución</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h3>Conclusiones<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>En Fusagasugá las curvas presentan concentraciones altas en los rangos superiores (80–100) con picos más marcados, lo que indica una mayor frecuencia de calificaciones elevadas y menor dispersión.</p></li>
+<li><p>En Girardot se pueden observar patrones similares, aunque con curvas ligeramente desplazadas hacia la izquierda en las competencias Procedimental y Cognitiva.</p></li>
+<li><p>Las competencias Axiológica y Actitudinal tienden a tener mayores concentraciones en valores altos y múltiples picos, mientras que la Cognitiva y Procedimental son más amplias, con mayor variabilidad en ambas sedes.</p></li>
+</ul>
+</section>
+</section>
+<section id="proporcion-de-reprobacion-por-grado-y-sede">
+<h2>4. Proporción de Reprobación por Grado y Sede<a class="headerlink" href="#proporcion-de-reprobacion-por-grado-y-sede" title="Link to this heading">#</a></h2>
+<p><img alt="Reprobación por Grado" src="../../../_images/heatmap_reprobacion_grado_sede.png" /></p>
+<p>Mapa de calor que muestra el porcentaje de estudiantes con calificación final menor a 60 (reprobados) por grado académico y sede.</p>
+<section id="id5">
+<h3>Interpretación<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Porcentaje mostrado:</strong> Indica qué proporción del grado está en riesgo académico</p></li>
+<li><p><strong>Patrones a identificar:</strong></p>
+<ul>
+<li><p><strong>Puntos calientes:</strong> Celdas específicas con porcentajes muy altos</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id6">
+<h3>Conclusiones<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fusagasugá presenta una tendencia ascendente de reprobación a medida que aumenta el grado.</p></li>
+<li><p>Girardot mantiene valores bajos y estables en todos los grados, sin superar el 2%, y con ausencia de reprobación en varios niveles superiores.</p></li>
+<li><p>La diferencia entre sedes es marcada: Fusagasugá muestra mayor variabilidad y un incremento progresivo en los grados altos, mientras Girardot conserva una distribución homogénea y controlada en todo el rango escolar.</p></li>
+</ul>
+</section>
+</section>
+<section id="proporcion-de-reprobacion-por-asignatura-grado-y-sede">
+<h2>5. Proporción de Reprobación por Asignatura-Grado y Sede<a class="headerlink" href="#proporcion-de-reprobacion-por-asignatura-grado-y-sede" title="Link to this heading">#</a></h2>
+<p><img alt="Reprobación por Asignatura-Grado" src="../../../_images/heatmap_reprobacion_asignatura_grado_sede.png" /></p>
+<p>Mapa de calor que muestra las <strong>Top 40 combinaciones de asignatura-grado</strong> con mayor proporción de reprobación.</p>
+<section id="id7">
+<h3>Interpretación<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Eje vertical:</strong> Combinaciones de asignatura y grado</p></li>
+<li><p><strong>Eje horizontal:</strong> Sedes</p></li>
+<li><p><strong>Valores:</strong> Porcentaje de estudiantes reprobados en esa combinación</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Conclusiones<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>En Fusagasugá las mayores proporciones se concentran en los grados superiores, especialmente en Ciencias Sociales 11°, Ciencias Naturales 11° y Matemáticas 11°. También aparecen niveles intermedios en asignaturas técnicas y de idiomas.</p></li>
+<li><p>Girardot muestra picos aislados de reprobación en Innovación 4 e Informática 8°, mientras el resto de las asignaturas mantienen porcentajes bajos o nulos.</p></li>
+<li><p>En Fusagasugá la reprobación es más amplia y constante en distintas áreas del currículo, mientras que en Girardot se concentra en unos pocos casos específicos, reflejando un patrón más localizado.</p></li>
+</ul>
+</section>
+</section>
+<section id="proporciones-de-excelencia-por-grado-y-sede">
+<h2>6. Proporciones de Excelencia por Grado y Sede<a class="headerlink" href="#proporciones-de-excelencia-por-grado-y-sede" title="Link to this heading">#</a></h2>
+<p><img alt="Excelencia por Grado" src="../../../_images/heatmap_excelencia_grado_sede.png" /></p>
+<p>Mapa de calor que muestra el porcentaje de estudiantes con calificación final ≥90 (nivel Superior) por grado académico y sede.</p>
+<section id="id9">
+<h3>Interpretación<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Porcentaje mostrado:</strong> Indica qué proporción del grado alcanza desempeño Superior</p></li>
+</ul>
+</section>
+<section id="id10">
+<h3>Conclusiones<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fusagasugá registra altos niveles de excelencia en primaria, con una disminución gradual hacia los niveles superiores, alcanzando su punto más bajo en 11°.</p></li>
+<li><p>Girardot mantiene porcentajes menores y más estables en la mayoría de los grados.</p></li>
+</ul>
+</section>
+</section>
+<section id="distribucion-de-niveles-por-grado-y-sede">
+<h2>7. Distribución de Niveles por Grado y Sede<a class="headerlink" href="#distribucion-de-niveles-por-grado-y-sede" title="Link to this heading">#</a></h2>
+<p><img alt="Niveles por Grado" src="../../../_images/barras_niveles_grado_sede.png" /></p>
+<p>Gráfico de barras apiladas que muestra la distribución porcentual de niveles de desempeño por grado académico en cada sede.</p>
+<section id="id11">
+<h3>Interpretación<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Formato:</strong> Cada barra representa un grado, dividida en segmentos coloreados según nivel de desempeño</p></li>
+<li><p><strong>Escala de niveles:</strong></p>
+<ul>
+<li><p>🔴 <strong>Bajo (&lt;60):</strong> Reprobados</p></li>
+<li><p>🟠 <strong>Básico (60-69):</strong> Aprobados con desempeño básico</p></li>
+<li><p>🔵 <strong>Alto (70-89):</strong> Buen desempeño</p></li>
+<li><p>🟢 <strong>Superior (≥90):</strong> Excelencia</p></li>
+</ul>
+</li>
+<li><p><strong>Señales de alerta:</strong></p>
+<ul>
+<li><p>Segmento rojo extenso (&gt;15%)</p></li>
+<li><p>Barra dominada por naranja (mucho «básico»)</p></li>
+<li><p>Poco verde y azul combinados</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id12">
+<h3>Conclusiones<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>En Fusagasugá primaria muestra una alta proporción de nivel superior, que disminuye progresivamente conforme avanza la escolaridad. El nivel alto se fortalece en los grados medios y superiores, mientras los niveles bajo y básico permanecen con tendencia ascendente.</p></li>
+<li><p>En Girardot se presenta mayor proporción del nivel alto en casi todos los grados. El nivel superior es menor y más estable, mientras que los niveles bajo y básico se mantienen en valores reducidos.</p></li>
+</ul>
+</section>
+</section>
+<section id="evolucion-temporal-de-asignaturas-por-sede">
+<h2>8. Evolución Temporal de Asignaturas por Sede<a class="headerlink" href="#evolucion-temporal-de-asignaturas-por-sede" title="Link to this heading">#</a></h2>
+<p><img alt="Evolución de Asignaturas" src="../../../_images/asignaturas_evolution_by_sede.png" /></p>
+<p>Gráficos de líneas que muestran la evolución del promedio de calificaciones en las 4 asignaturas principales a lo largo de los períodos académicos, por sede.</p>
+<section id="id13">
+<h3>Interpretación<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Ejes:</strong></p>
+<ul>
+<li><p><strong>Horizontal:</strong> Períodos académicos (año-semestre)</p></li>
+<li><p><strong>Vertical:</strong> Calificación promedio (0-100)</p></li>
+</ul>
+</li>
+<li><p><strong>Líneas de referencia:</strong></p>
+<ul>
+<li><p>🔴 <strong>60:</strong> Umbral de aprobación</p></li>
+<li><p>🟠 <strong>70:</strong> Inicio de desempeño Básico</p></li>
+<li><p>🟢 <strong>80:</strong> Inicio de desempeño Alto</p></li>
+</ul>
+</li>
+<li><p><strong>Análisis comparativo:</strong></p>
+<ul>
+<li><p><strong>Líneas muy separadas:</strong> Asignaturas con desempeño muy diferente</p></li>
+<li><p><strong>Líneas paralelas:</strong> Tendencias comunes afectan todas las asignaturas</p></li>
+<li><p><strong>Líneas que se cruzan:</strong> Cambios relativos en la dificultad percibida</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id14">
+<h3>Conclusiones<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>En Fusagasugá las calificaciones se mantienen estables en rangos altos (80–90), con leves fluctuaciones entre períodos. Ciencias Naturales y Lengua Castellana conservan los valores más consistentes, mientras Matemáticas muestra ligeras caídas en algunos bimestres.</p></li>
+<li><p>Girardot tiene un patrón más plano con menos variación entre asignaturas, aunque con valores ligeramente menores que los de Fusagasugá. Ciencias Sociales presenta mayor estabilidad en el tiempo.</p></li>
+<li><p>Ambas sedes mantienen trayectorias similares con rendimientos estables y sin caídas pronunciadas.</p></li>
+</ul>
+</section>
+</section>
+<section id="relacion-entre-competencias-y-calificacion-final">
+<h2>9. Relación entre Competencias y Calificación Final<a class="headerlink" href="#relacion-entre-competencias-y-calificacion-final" title="Link to this heading">#</a></h2>
+<section id="visualizaciones">
+<h3>Visualizaciones<a class="headerlink" href="#visualizaciones" title="Link to this heading">#</a></h3>
+<section id="sede-fusagasuga">
+<h4>Sede: Fusagasugá<a class="headerlink" href="#sede-fusagasuga" title="Link to this heading">#</a></h4>
+<p><img alt="Competencias vs Resultado - Fusagasugá" src="../../../_images/competencias_vs_resultado_scatter_Fusagasuga.png" /></p>
+</section>
+<section id="sede-girardot">
+<h4>Sede: Girardot<a class="headerlink" href="#sede-girardot" title="Link to this heading">#</a></h4>
+<p><img alt="Competencias vs Resultado - Girardot" src="../../../_images/competencias_vs_resultado_scatter_Girardot.png" /></p>
+<p>Diagramas de dispersión que muestran la relación entre cada competencia individual (Axiológica, Cognitiva, Procedimental, Actitudinal) y la calificación final del estudiante.</p>
+</section>
+</section>
+<section id="id15">
+<h3>Interpretación<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Ejes:</strong></p>
+<ul>
+<li><p><strong>Horizontal:</strong> Calificación en la competencia específica (0-100)</p></li>
+<li><p><strong>Vertical:</strong> Calificación final (0-100)</p></li>
+</ul>
+</li>
+<li><p><strong>Elementos del gráfico:</strong></p>
+<ul>
+<li><p><strong>Puntos:</strong> Cada punto representa un estudiante</p></li>
+<li><p><strong>Línea roja discontinua:</strong> Tendencia lineal (regresión)</p></li>
+<li><p><strong>Área amarilla:</strong> «Zona de interés» - Baja competencia + Alta nota final</p></li>
+<li><p><strong>Estadísticas incluidas:</strong></p>
+<ul>
+<li><p><strong>r (correlación):</strong> De -1 a 1, mide la fuerza de la relación</p></li>
+<li><p><strong>n:</strong> Número de casos analizados</p></li>
+<li><p><strong>Casos en zona de interés:</strong> Estudiantes con patrón anómalo</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Interpretación de correlación (r):</strong></p>
+<ul>
+<li><p><strong>r &gt; 0.7:</strong> Correlación fuerte positiva (esperado)</p></li>
+<li><p><strong>r = 0.4-0.7:</strong> Correlación moderada</p></li>
+<li><p><strong>r &lt; 0.4:</strong> Correlación débil (señal de alerta)</p></li>
+</ul>
+</li>
+<li><p><strong>Zona de interés (amarilla):</strong></p>
+<ul>
+<li><p><strong>Alto porcentaje:</strong> Posible compensación entre competencias</p></li>
+<li><p><strong>Interpretación:</strong> Estudiantes con baja competencia específica pero nota final alta</p></li>
+<li><p><strong>Hipótesis:</strong> El sistema de calificación podría permitir compensar debilidades en una competencia con fortalezas en otras</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id16">
+<h3>Conclusiones<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>En Fusagasugá las correlaciones son altas en todas las competencias, especialmente en la Cognitiva y Procedimental, donde los puntos siguen estrechamente la línea de tendencia. Esto indica una correspondencia consistente entre desempeño por competencia y resultado global.</p></li>
+<li><p>Girardot presenta un patrón muy similar, con correlaciones igualmente fuertes. Las relaciones más ajustadas se observan en la Cognitiva y Procedimental, mientras que la Axiológica y Actitudinal muestran mayor dispersión.</p></li>
+<li><p>En Fusagasugá en las competencias Cognitiva y Procedimental, hay una acumulación visible de puntos en la zona amarilla, que corresponde a estudiantes con bajas calificaciones en la competencia pero notas finales altas.</p></li>
+<li><p>Aunque la relación general entre competencia y resultado es muy fuerte y coherente, hay un grupo de estudiantes que logra buenos resultados finales a pesar de un desempeño limitado en la competencia específica.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/03_data_analysis/eda_grades"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../eda_analysis_students/README.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Análisis Exploratorio de Datos de Estudiantes 2024-2025</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../eda_courses/README.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Análisis de Cursos en Moodle</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-niveles-de-desempeno-por-periodo-y-sede">1. Distribución de Niveles de Desempeño por Período y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-calificaciones-por-periodo-y-sede">2. Distribución de Calificaciones por Período y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#densidad-de-competencias-por-sede">3. Densidad de Competencias por Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporcion-de-reprobacion-por-grado-y-sede">4. Proporción de Reprobación por Grado y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporcion-de-reprobacion-por-asignatura-grado-y-sede">5. Proporción de Reprobación por Asignatura-Grado y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporciones-de-excelencia-por-grado-y-sede">6. Proporciones de Excelencia por Grado y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-niveles-por-grado-y-sede">7. Distribución de Niveles por Grado y Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucion-temporal-de-asignaturas-por-sede">8. Evolución Temporal de Asignaturas por Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relacion-entre-competencias-y-calificacion-final">9. Relación entre Competencias y Calificación Final</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sede-fusagasuga">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sede-girardot">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Data Analytics Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright © 2025 Formar Innovar.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

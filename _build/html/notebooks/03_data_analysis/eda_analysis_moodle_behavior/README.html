@@ -1,0 +1,1046 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Análisis de Comportamiento en Moodle &#8212; Formar Innovar · Educational Analytics Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=bb6f747e"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03_data_analysis/eda_analysis_moodle_behavior/README';</script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" />
+    <link rel="next" title="Análisis de Comportamiento Docente - Sede Fusagasugá" href="../eda_analysis_teacher_behavior/fusagasuga/README.html" />
+    <link rel="prev" title="Análisis de Retiro de Estudiantes 2021-2025" href="../eda_analysis_dropout/README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../00_introduction/README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/FICC.png" class="logo__image only-light" alt="Formar Innovar · Educational Analytics Project - Home"/>
+    <script>document.write(`<img src="../../../_static/FICC.png" class="logo__image only-dark" alt="Formar Innovar · Educational Analytics Project - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tratamiento de Datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01_data_treatment/01_school_recommendations.html">Guía de Tratamiento de Datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de Datos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_students/README.html">Estudiantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_grades/README.html">Calificaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_courses/README.html">Cursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_dropout/README.html">Retiro de Estudiantes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Uso de Moodle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_teacher_behavior/fusagasuga/README.html">Docentes Fusagasugá</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_teacher_behavior/girardot/README.html">Docentes Girardot</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asignaturas Principales (Con Moodle)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/00_missing_values/README.html">Valores Faltantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/01_features_selection/README.html">Selección de Caracteristicias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/02_statistical_filtering/README.html">Filtrado Estadístico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/03_data_visualization/README.html">Exploración de los Datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras Asignaturas (Sin Moodle)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/00_missing_values/README.html">Valores Faltantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/01_features_selection/README.html">Selección de Caracteristicias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/02_statistical_filtering/README.html">Filtrado Estadístico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/03_data_visualization/README.html">Exploración de los Datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análisis de Comportamiento en Moodle</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-accesos-mensuales-por-sede">1. Tasa de Accesos Mensuales por Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porcentaje-de-estudiantes-activos-por-mes">2. Porcentaje de Estudiantes Activos por Mes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patrones-de-acceso-por-hora">3. Patrones de Acceso por Hora</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapas-de-calor-participacion-por-asignatura-y-grado">4. Mapas de Calor: Participación por Asignatura y Grado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sede-fusagasuga">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sede-girardot">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-participacion">5. Diagnóstico de Participación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Interpretación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#embudo-de-participacion-izquierda"><strong>Embudo de Participación (Izquierda)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-por-nivel-de-actividad-derecha"><strong>Distribución por Nivel de Actividad (Derecha)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calificaciones-con-vs-sin-acceso-a-moodle">6. Calificaciones: Con vs Sin Acceso a Moodle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Interpretación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#si-la-mediana-verde-esta-a-la-derecha-de-la-roja"><strong>Si la mediana VERDE está a la derecha de la ROJA:</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#si-ambas-medianas-estan-cerca"><strong>Si ambas medianas están cerca:</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#si-hay-muchos-estudiantes-sin-acceso-con-notas-altas"><strong>Si hay muchos estudiantes SIN acceso con notas altas:</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#si-hay-muchos-estudiantes-con-acceso-con-notas-bajas"><strong>Si hay muchos estudiantes CON acceso con notas bajas:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patrones-de-navegacion-en-secuencias">7. Patrones de Navegación en Secuencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Descripción</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tres-metricas-clave"><strong>Tres Métricas Clave:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="analisis-de-comportamiento-en-moodle">
+<h1>Análisis de Comportamiento en Moodle<a class="headerlink" href="#analisis-de-comportamiento-en-moodle" title="Link to this heading">#</a></h1>
+<section id="resumen">
+<h2>Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
+<p>Este análisis explora el comportamiento de <strong>357 estudiantes únicos</strong> en la plataforma Moodle, abarcando <strong>261 cursos</strong> desde <strong>2024-1 hasta 2025-1</strong></p>
+<p><strong>Asignaturas principales:</strong> Matemáticas, Lenguaje, Ciencias Naturales, Ciencias Sociales</p>
+</section>
+<hr class="docutils" />
+<section id="tasa-de-accesos-mensuales-por-sede">
+<h2>1. Tasa de Accesos Mensuales por Sede<a class="headerlink" href="#tasa-de-accesos-mensuales-por-sede" title="Link to this heading">#</a></h2>
+<section id="visualizacion">
+<h3>Visualización<a class="headerlink" href="#visualizacion" title="Link to this heading">#</a></h3>
+<p><img alt="Tasa de Accesos Mensuales" src="../../../_images/monthly_accesses_rate_by_sede.png" /></p>
+</section>
+<section id="descripcion">
+<h3>Descripción<a class="headerlink" href="#descripcion" title="Link to this heading">#</a></h3>
+<p>Este gráfico muestra la tasa de accesos a Moodle normalizada por cada 10 estudiantes inscritos, permitiendo una comparación entre sedes con diferente cantidad de estudiantes.</p>
+</section>
+<section id="interpretacion">
+<h3>Interpretación<a class="headerlink" href="#interpretacion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Formato de etiquetas:</strong> Cada barra muestra:</p>
+<ul>
+<li><p><strong>Número superior:</strong> Tasa normalizada (accesos/10 estudiantes)</p></li>
+<li><p><strong>Número entre paréntesis:</strong> Total de accesos absolutos</p></li>
+</ul>
+</li>
+<li><p><strong>Tasa alta (&gt;100):</strong> Indica que, en promedio, cada estudiante accede más de 10 veces al mes a la plataforma.</p></li>
+<li><p><strong>Tasa baja (&lt;50):</strong> Sugiere uso limitado de Moodle.</p></li>
+<li><p><strong>Variabilidad mensual:</strong> Picos pueden correlacionarse con evaluaciones o inicio/fin de períodos académicos.</p></li>
+</ul>
+</section>
+<section id="conclusiones">
+<h3>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>La caída abrupta en junio y noviembre podría estar asociada al fin del periodo académico y vacaciones.</p></li>
+<li><p>Fusagasugá mantiene un uso sostenido, mientras que Girardot presenta actividad a más baja escala.</p></li>
+<li><p>En Fusagasugá se observan picos de accesos en el primer mes del año, pero no en Girardot lo que puede indicar estrategias distintas y menor sincronía entre el calendario escolar y el uso de Moodle.</p></li>
+</ul>
+</section>
+</section>
+<section id="porcentaje-de-estudiantes-activos-por-mes">
+<h2>2. Porcentaje de Estudiantes Activos por Mes<a class="headerlink" href="#porcentaje-de-estudiantes-activos-por-mes" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Visualización<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><img alt="Porcentaje de Estudiantes Activos" src="../../../_images/unique_students_percentage_by_month_sede.png" /></p>
+</section>
+<section id="id2">
+<h3>Descripción<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Muestra el porcentaje de estudiantes inscritos que accedieron al menos una vez a Moodle en cada mes, por sede.</p>
+</section>
+<section id="id3">
+<h3>Interpretación<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Formato de etiquetas:</strong> Cada barra muestra:</p>
+<ul>
+<li><p><strong>Porcentaje (%):</strong> Proporción de estudiantes que accedieron</p></li>
+<li><p><strong>Número entre paréntesis:</strong> Cantidad absoluta de estudiantes únicos</p></li>
+</ul>
+</li>
+<li><p><strong>Umbral de participación:</strong> Se considera que un estudiante «accedió» si tiene al menos 1 registro de actividad en el mes.</p></li>
+<li><p><strong>&gt;80%:</strong> Excelente nivel de adopción, la mayoría de estudiantes usa la plataforma.</p></li>
+<li><p><strong>60-80%:</strong> Buena adopción.</p></li>
+<li><p><strong>&lt;60%:</strong> Señal de alerta, una porción significativa de estudiantes no usa Moodle.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Conclusiones<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>La gran mayoría de los estudiantes en Fusagasugá entra al menos una vez al mes, lo que sugiere que Moodle está incorporado en la rutina académica.</p></li>
+<li><p>En Girardot el acceso parece más episódico, reflejando un uso vinculado a momentos específicos más que a una práctica estable.</p></li>
+</ul>
+</section>
+</section>
+<section id="patrones-de-acceso-por-hora">
+<h2>3. Patrones de Acceso por Hora<a class="headerlink" href="#patrones-de-acceso-por-hora" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>Visualización<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><img alt="Patrones por Hora" src="../../../_images/hourly_access_patterns.png" /></p>
+</section>
+<section id="id6">
+<h3>Descripción<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Análisis de la distribución de accesos y estudiantes únicos por hora del día (hora de Bogotá, UTC-5).</p>
+</section>
+<section id="id7">
+<h3>Interpretación<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Gráfico izquierdo:</strong> Total de accesos por hora del día.</p></li>
+<li><p><strong>Gráfico derecho:</strong> Número de estudiantes únicos activos por hora.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Conclusiones<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>En ambas sedes, la mayor actividad ocurre entre las 7:00 a.m. y las 3:00 p.m., lo que indica que el uso de Moodle está integrado en la jornada escolar.</p></li>
+<li><p>Después de esa franja, la interacción cae drásticamente, lo que sugiere bajo uso autónomo fuera del horario de clases.</p></li>
+<li><p>Fusagasugá muestra un volumen de accesos significativamente superior durante todo el día, además de una curva más sostenida y diversificada, con picos regulares entre las 8:00 y las 14:00 h.</p></li>
+<li><p>En Girardot, la distribución horaria replica la tendencia general, pero con una menor magnitud y continuidad de accesos.</p></li>
+</ul>
+</section>
+</section>
+<section id="mapas-de-calor-participacion-por-asignatura-y-grado">
+<h2>4. Mapas de Calor: Participación por Asignatura y Grado<a class="headerlink" href="#mapas-de-calor-participacion-por-asignatura-y-grado" title="Link to this heading">#</a></h2>
+<section id="visualizaciones">
+<h3>Visualizaciones<a class="headerlink" href="#visualizaciones" title="Link to this heading">#</a></h3>
+<section id="sede-fusagasuga">
+<h4>Sede: Fusagasugá<a class="headerlink" href="#sede-fusagasuga" title="Link to this heading">#</a></h4>
+<p><img alt="Heatmap - Fusagasugá" src="../../../_images/heatmap_moodle_Fusagasuga.png" /></p>
+</section>
+<section id="sede-girardot">
+<h4>Sede: Girardot<a class="headerlink" href="#sede-girardot" title="Link to this heading">#</a></h4>
+<p><img alt="Heatmap - Girardot" src="../../../_images/heatmap_moodle_Girardot.png" /></p>
+</section>
+</section>
+<section id="id9">
+<h3>Descripción<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>Los mapas de calor muestran dos métricas de engagement en Moodle:</p>
+<ol class="arabic simple">
+<li><p><strong>% de Módulos Vistos (Mediana):</strong> Porcentaje de módulos del curso que los estudiantes visualizaron al menos una vez.</p></li>
+<li><p><strong>% de Módulos con Participación (Mediana):</strong> Porcentaje de módulos donde los estudiantes realizaron actividades interactivas (no solo visualización).</p></li>
+</ol>
+</section>
+<section id="id10">
+<h3>Interpretación<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Métrica:</strong> Se usa la mediana para evitar el sesgo de valores extremos.</p></li>
+<li><p><strong>Ejes:</strong></p>
+<ul>
+<li><p><strong>Horizontal:</strong> Asignaturas básicas (Matemáticas, Lenguaje, Ciencias Naturales, Ciencias Sociales)</p></li>
+<li><p><strong>Vertical:</strong> Grados (1° a 11°)</p></li>
+</ul>
+</li>
+<li><p><strong>Escala de colores:</strong></p>
+<ul>
+<li><p>🟢 <strong>Verde (&gt;70%):</strong> Alta participación</p></li>
+<li><p>🟡 <strong>Amarillo (40-70%):</strong> Participación moderada</p></li>
+<li><p>🔴 <strong>Rojo (&lt;40%):</strong> Baja participación (señal de alerta)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id11">
+<h3>Conclusiones<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Fusagasugá:</strong></p>
+<ul>
+<li><p>No se identifican grados con un problema particular, ya que la baja participación es generalizada.</p></li>
+</ul>
+</li>
+<li><p><strong>Girardot:</strong></p>
+<ul>
+<li><p>La participación activa es extremadamente baja en todos los grados, con medianas entre 0 % y 2,4 %.</p></li>
+<li><p>En términos comparativos, Girardot muestra una menor participación que Fusagasugá, indicando posibles diferencias en el uso de Moodle.</p></li>
+<li><p>No hay una asignatura con buena participación, sino una tendencia global de interacción mínima en Moodle.</p></li>
+</ul>
+</li>
+<li><p>El contraste entre módulos “vistos” y módulos “participados” evidencia que los estudiantes acceden pero no interactúan, lo que apunta a posibles problemas en el diseño de actividades o en la motivación para usar Moodle más allá de la consulta de materiales.</p></li>
+</ul>
+</section>
+</section>
+<section id="diagnostico-de-participacion">
+<h2>5. Diagnóstico de Participación<a class="headerlink" href="#diagnostico-de-participacion" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h3>Visualizaciones<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h4>Sede: Fusagasugá<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<p><img alt="Diagnóstico - Fusagasugá" src="../../../_images/diagnostic_participacion_Fusagasuga.png" /></p>
+</section>
+<section id="id14">
+<h4>Sede: Girardot<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<p><img alt="Diagnóstico - Girardot" src="../../../_images/diagnostic_participacion_Girardot.png" /></p>
+</section>
+</section>
+<section id="id15">
+<h3>Interpretación<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<section id="embudo-de-participacion-izquierda">
+<h4><strong>Embudo de Participación (Izquierda)</strong><a class="headerlink" href="#embudo-de-participacion-izquierda" title="Link to this heading">#</a></h4>
+<p>Muestra las 4 etapas del proceso de engagement en Moodle:</p>
+<ol class="arabic simple">
+<li><p><strong>Inscritos (100%):</strong> Todos los estudiantes matriculados en el curso</p></li>
+<li><p><strong>Accedieron:</strong> Estudiantes que entraron a Moodle al menos 1 vez</p></li>
+<li><p><strong>Participaron:</strong> Estudiantes que realizaron actividades interactivas</p></li>
+<li><p><strong>Completaron:</strong> Estudiantes que visualizaron todos los módulos del curso</p></li>
+</ol>
+</section>
+<section id="distribucion-por-nivel-de-actividad-derecha">
+<h4><strong>Distribución por Nivel de Actividad (Derecha)</strong><a class="headerlink" href="#distribucion-por-nivel-de-actividad-derecha" title="Link to this heading">#</a></h4>
+<p>Segmenta a los estudiantes en 4 categorías:</p>
+<ul class="simple">
+<li><p>🔴 <strong>Sin acceso (0%):</strong> Nunca entraron a un módulo de Moodle</p></li>
+<li><p>🟠 <strong>Acceso mínimo (1-30%):</strong> Visualizaron menos del 30% de los módulos</p></li>
+<li><p>🟡 <strong>Parcialmente activos (30-70%):</strong> Engagement moderado</p></li>
+<li><p>🟢 <strong>Muy activos (&gt;70%):</strong> Alta participación en el curso</p></li>
+</ul>
+<p>Nota: El número de estudiantes representa inscripciones estudiante-período. Un estudiante inscrito en 4 períodos cuenta como 4 estudiantes en la gráfica.</p>
+</section>
+</section>
+<section id="id16">
+<h3>Conclusiones<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Fusagasugá:</strong></p>
+<ul>
+<li><p>Aunque los tres primeros niveles del embudo (inscritos, accedieron, participaron) muestran porcentajes altos y cercanos entre sí (≈85–95 %), el nivel “Completaron” no tiene datos.</p></li>
+<li><p>Predominan los estudiantes parcialmente activos (30–70 %), seguidos de un grupo numeroso con acceso mínimo (1–30 %).</p></li>
+<li><p>Solo entre 6 % y 9 % son muy activos, un grupo pequeño pero consistente.</p></li>
+</ul>
+</li>
+<li><p><strong>Girardot:</strong></p>
+<ul>
+<li><p>Aquí también el nivel de “Completaron” está vacío, pero además se observa una caída más pronunciada entre “Accedieron” y “Participaron”.</p></li>
+<li><p>Esto revela que, aunque un porcentaje relevante accede a la plataforma (≈60–70 %), solo la mitad o menos participa.</p></li>
+<li><p>La mayoría está en las categorías de acceso mínimo o parcial, pero con una proporción elevada de estudiantes sin acceso (18–42 %), sobre todo en Lengua Castellana</p></li>
+</ul>
+</li>
+<li><p>En ambas sedes, la ausencia de datos de “completaron” indica una limitación del seguimiento en Moodle.</p></li>
+<li><p>Girardot requiere acciones de acompañamiento o refuerzo para transformar el acceso inicial en participación efectiva.</p></li>
+</ul>
+</section>
+</section>
+<section id="calificaciones-con-vs-sin-acceso-a-moodle">
+<h2>6. Calificaciones: Con vs Sin Acceso a Moodle<a class="headerlink" href="#calificaciones-con-vs-sin-acceso-a-moodle" title="Link to this heading">#</a></h2>
+<section id="id17">
+<h3>Visualizaciones<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<section id="id18">
+<h4>Sede: Fusagasugá<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
+<p><img alt="Calificaciones - Fusagasugá" src="../../../_images/grades_without_moodle_Fusagasuga.png" /></p>
+</section>
+<section id="id19">
+<h4>Sede: Girardot<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
+<p><img alt="Calificaciones - Girardot" src="../../../_images/grades_without_moodle_Girardot.png" /></p>
+</section>
+</section>
+<section id="id20">
+<h3>Descripción<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>Comparación de la distribución de calificaciones finales (escala 0-100) entre dos grupos de estudiantes:</p>
+<ul class="simple">
+<li><p>🔴 <strong>Sin acceso a Moodle:</strong> Estudiantes que NO visualizaron ningún módulo</p></li>
+<li><p>🟢 <strong>Con acceso a Moodle:</strong> Estudiantes que visualizaron al menos 1 módulo</p></li>
+</ul>
+</section>
+<section id="id21">
+<h3>Interpretación<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Escala:</strong> Calificaciones de 0 a 100 puntos.</p></li>
+<li><p><strong>Umbral de aprobación:</strong> Línea punteada gris a los 60 puntos.</p></li>
+<li><p><strong>Líneas de mediana:</strong></p>
+<ul>
+<li><p>🔴 Roja (sin acceso)</p></li>
+<li><p>🟢 Verde (con acceso)</p></li>
+</ul>
+</li>
+<li><p><strong>Estadísticas incluidas:</strong></p>
+<ul>
+<li><p>Media de calificaciones</p></li>
+<li><p>Número y porcentaje de estudiantes aprobados</p></li>
+</ul>
+</li>
+<li><p><strong>Nota importante:</strong> <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">registros</span> <span class="pre">estudiante-período</span></code> (un mismo estudiante puede aparecer en múltiples períodos).</p></li>
+</ul>
+<section id="si-la-mediana-verde-esta-a-la-derecha-de-la-roja">
+<h4><strong>Si la mediana VERDE está a la derecha de la ROJA:</strong><a class="headerlink" href="#si-la-mediana-verde-esta-a-la-derecha-de-la-roja" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Impacto positivo de Moodle:</strong> Los estudiantes que usan la plataforma tienen mejores calificaciones.</p></li>
+<li><p>Evidencia de correlación entre uso de Moodle y desempeño académico.</p></li>
+</ul>
+</section>
+<section id="si-ambas-medianas-estan-cerca">
+<h4><strong>Si ambas medianas están cerca:</strong><a class="headerlink" href="#si-ambas-medianas-estan-cerca" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Moodle no marca diferencia:</strong> El uso de la plataforma no se refleja en mejores notas.</p></li>
+</ul>
+</section>
+<section id="si-hay-muchos-estudiantes-sin-acceso-con-notas-altas">
+<h4><strong>Si hay muchos estudiantes SIN acceso con notas altas:</strong><a class="headerlink" href="#si-hay-muchos-estudiantes-sin-acceso-con-notas-altas" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Los buenos estudiantes pueden aprobar sin Moodle.</p></li>
+<li><p>Moodle no es percibido como necesario para el éxito académico.</p></li>
+</ul>
+</section>
+<section id="si-hay-muchos-estudiantes-con-acceso-con-notas-bajas">
+<h4><strong>Si hay muchos estudiantes CON acceso con notas bajas:</strong><a class="headerlink" href="#si-hay-muchos-estudiantes-con-acceso-con-notas-bajas" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Acceder a Moodle no garantiza el éxito.</p></li>
+</ul>
+</section>
+</section>
+<section id="id22">
+<h3>Conclusiones<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Fusagasugá:</strong></p>
+<ul>
+<li><p>En todas las asignaturas, la línea verde (con acceso a Moodle) está ligeramente a la derecha de la línea roja (sin acceso), lo que indica un impacto positivo moderado del uso de Moodle en las calificaciones.</p></li>
+<li><p>Los estudiantes que accedieron a Moodle tienden a obtener calificaciones ligeramente más altas.</p></li>
+<li><p>La diferencia no es drástica, pero sí consistente entre materias.</p></li>
+</ul>
+</li>
+<li><p><strong>Girardot:</strong></p>
+<ul>
+<li><p>Aquí, las líneas verde y roja están casi superpuestas, lo que muestra que el uso de Moodle no mejora sustancialmente las calificaciones</p></li>
+<li><p>Moodle parece tener baja incidencia en el desempeño académico.</p></li>
+<li><p>Las calificaciones promedio y medianas son casi idénticas con y sin acceso.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="patrones-de-navegacion-en-secuencias">
+<h2>7. Patrones de Navegación en Secuencias<a class="headerlink" href="#patrones-de-navegacion-en-secuencias" title="Link to this heading">#</a></h2>
+<section id="id23">
+<h3>Visualizaciones<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<section id="id24">
+<h4>Sede: Fusagasugá<a class="headerlink" href="#id24" title="Link to this heading">#</a></h4>
+<p><img alt="Patrones de Secuencia - Fusagasugá" src="../../../_images/sequence_patterns_Fusagasuga.png" /></p>
+</section>
+<section id="id25">
+<h4>Sede: Girardot<a class="headerlink" href="#id25" title="Link to this heading">#</a></h4>
+<p><img alt="Patrones de Secuencia - Girardot" src="../../../_images/sequence_patterns_Girardot.png" /></p>
+</section>
+</section>
+<section id="id26">
+<h3>Descripción<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p>Análisis avanzado de cómo los estudiantes <strong>navegan a través de las secuencias de actividades</strong> en los cursos de Moodle, comparando su ruta real con la secuencia pedagógica ideal diseñada por los docentes.</p>
+<section id="tres-metricas-clave">
+<h4><strong>Tres Métricas Clave:</strong><a class="headerlink" href="#tres-metricas-clave" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Adherencia a la Secuencia Ideal (Sequence Match Ratio)</strong></p>
+<ul class="simple">
+<li><p>Mide qué tan bien los estudiantes siguen el orden recomendado de actividades.</p></li>
+<li><p>100% = siguió perfectamente la secuencia diseñada por el docente.</p></li>
+</ul>
+</li>
+<li><p><strong>Distancia de la Secuencia Ideal (Levenshtein Normalizado)</strong></p>
+<ul class="simple">
+<li><p>Cuantifica cuántas «ediciones» serían necesarias para convertir la secuencia del estudiante en la ideal.</p></li>
+<li><p>0% = secuencia idéntica a la ideal.</p></li>
+<li><p>Mayor porcentaje = mayor desviación de la ruta pedagógica planeada.</p></li>
+</ul>
+</li>
+<li><p><strong>Actividades Faltantes (Missing Activities)</strong></p>
+<ul class="simple">
+<li><p>Número promedio de actividades que los estudiantes NO visitaron dentro de la secuencia.</p></li>
+<li><p>Escala automática según el número de actividades en cada curso.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="id27">
+<h3>Interpretación<a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Métrica:</strong> Se usa la mediana para cada combinación asignatura-grado-sede.</p></li>
+<li><p><strong>Escala de colores:</strong></p>
+<ul>
+<li><p><strong>Adherencia y Orden:</strong> 🟢 Verde (alta adherencia) → 🔴 Rojo (baja adherencia)</p></li>
+<li><p><strong>Distancia:</strong> 🔴 Rojo (alta distancia) → 🟢 Verde (baja distancia) [invertido]</p></li>
+<li><p><strong>Actividades faltantes:</strong> 🟡 Amarillo (pocas) → 🔴 Rojo (muchas)</p></li>
+</ul>
+</li>
+<li><p><strong>Alta adherencia (&gt;80%):</strong></p>
+<ul>
+<li><p>✅ Los estudiantes siguen el camino pedagógico diseñado.</p></li>
+<li><p>✅ La secuencia de actividades es lógica e intuitiva.</p></li>
+<li><p>✅ Posiblemente hay guías claras o secuenciación obligatoria.</p></li>
+</ul>
+</li>
+<li><p><strong>Baja adherencia (&lt;50%):</strong></p>
+<ul>
+<li><p>⚠️ Los estudiantes navegan «al azar» o saltándose actividades.</p></li>
+<li><p>⚠️ Puede indicar:</p>
+<ul>
+<li><p>Secuencia mal diseñada (no es clara)</p></li>
+<li><p>Falta de prerrequisitos entre actividades</p></li>
+<li><p>Estudiantes avanzados que buscan contenido específico</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Muchas actividades faltantes:</strong></p>
+<ul>
+<li><p>🔴 Estudiantes no completan el recorrido del curso.</p></li>
+<li><p>🔴 Posibles causas:</p>
+<ul>
+<li><p>Contenido muy extenso</p></li>
+<li><p>Actividades poco atractivas</p></li>
+<li><p>Desmotivación</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id28">
+<h3>Conclusiones<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Fusagasugá:</strong></p>
+<ul>
+<li><p>La navegación parcialmente estructurada; los estudiantes avanzan con cierta lógica, pero no siempre siguen el orden completo ni completan todas las actividades.</p></li>
+</ul>
+</li>
+<li><p><strong>Girardot:</strong></p>
+<ul>
+<li><p>Los estudiantes parecen interactuar con Moodle de manera más esporádica, con muchos saltos y abandono de actividades.</p></li>
+</ul>
+</li>
+<li><p>Las áreas de Ciencias Sociales y Lengua Castellana presentan los mayores desafíos en ambas sedes, tanto en adherencia como en finalización.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/03_data_analysis/eda_analysis_moodle_behavior"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../eda_analysis_dropout/README.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Análisis de Retiro de Estudiantes 2021-2025</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../eda_analysis_teacher_behavior/fusagasuga/README.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Análisis de Comportamiento Docente - Sede Fusagasugá</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-accesos-mensuales-por-sede">1. Tasa de Accesos Mensuales por Sede</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porcentaje-de-estudiantes-activos-por-mes">2. Porcentaje de Estudiantes Activos por Mes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patrones-de-acceso-por-hora">3. Patrones de Acceso por Hora</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Visualización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapas-de-calor-participacion-por-asignatura-y-grado">4. Mapas de Calor: Participación por Asignatura y Grado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sede-fusagasuga">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sede-girardot">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-de-participacion">5. Diagnóstico de Participación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Interpretación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#embudo-de-participacion-izquierda"><strong>Embudo de Participación (Izquierda)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-por-nivel-de-actividad-derecha"><strong>Distribución por Nivel de Actividad (Derecha)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calificaciones-con-vs-sin-acceso-a-moodle">6. Calificaciones: Con vs Sin Acceso a Moodle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Descripción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Interpretación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#si-la-mediana-verde-esta-a-la-derecha-de-la-roja"><strong>Si la mediana VERDE está a la derecha de la ROJA:</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#si-ambas-medianas-estan-cerca"><strong>Si ambas medianas están cerca:</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#si-hay-muchos-estudiantes-sin-acceso-con-notas-altas"><strong>Si hay muchos estudiantes SIN acceso con notas altas:</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#si-hay-muchos-estudiantes-con-acceso-con-notas-bajas"><strong>Si hay muchos estudiantes CON acceso con notas bajas:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patrones-de-navegacion-en-secuencias">7. Patrones de Navegación en Secuencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Visualizaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Sede: Fusagasugá</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Sede: Girardot</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Descripción</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tres-metricas-clave"><strong>Tres Métricas Clave:</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Data Analytics Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright © 2025 Formar Innovar.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

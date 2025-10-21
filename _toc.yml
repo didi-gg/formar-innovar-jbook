@@ -1,0 +1,47 @@
+format: jb-book
+root: notebooks/00_introduction/README
+
+parts:
+- caption: Tratamiento de Datos
+  chapters:
+  - file: notebooks/01_data_treatment/01_school_recommendations
+    title: Guía de Tratamiento de Datos
+
+- caption: Análisis de Datos
+  chapters:
+  - file: notebooks/03_data_analysis/eda_analysis_students/README
+    title: Estudiantes
+  - file: notebooks/03_data_analysis/eda_grades/README
+    title: Calificaciones
+  - file: notebooks/03_data_analysis/eda_courses/README
+    title: Cursos
+  - file: notebooks/03_data_analysis/eda_analysis_dropout/README
+    title: Retiro de Estudiantes
+  - file: notebooks/03_data_analysis/eda_analysis_moodle_behavior/README
+    title: Uso de Moodle
+  - file: notebooks/03_data_analysis/eda_analysis_teacher_behavior/fusagasuga/README
+    title: Docentes Fusagasugá
+  - file: notebooks/03_data_analysis/eda_analysis_teacher_behavior/girardot/README
+    title: Docentes Girardot
+
+- caption: Asignaturas Principales (Con Moodle)
+  chapters:
+  - file: notebooks/03_data_analysis/eda_analysis_moodle/00_missing_values/README
+    title: Valores Faltantes
+  - file: notebooks/03_data_analysis/eda_analysis_moodle/01_features_selection/README
+    title: Selección de Caracteristicias
+  - file: notebooks/03_data_analysis/eda_analysis_moodle/02_statistical_filtering/README
+    title: Filtrado Estadístico
+  - file: notebooks/03_data_analysis/eda_analysis_moodle/03_data_visualization/README
+    title: Exploración de los Datos
+
+- caption: Otras Asignaturas (Sin Moodle)
+  chapters:
+  - file: notebooks/03_data_analysis/eda_analysis_no_moodle/00_missing_values/README
+    title: Valores Faltantes
+  - file: notebooks/03_data_analysis/eda_analysis_no_moodle/01_features_selection/README
+    title: Selección de Caracteristicias
+  - file: notebooks/03_data_analysis/eda_analysis_no_moodle/02_statistical_filtering/README
+    title: Filtrado Estadístico
+  - file: notebooks/03_data_analysis/eda_analysis_no_moodle/03_data_visualization/README
+    title: Exploración de los Datos

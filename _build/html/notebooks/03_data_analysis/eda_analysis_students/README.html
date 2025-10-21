@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Análisis Exploratorio de Datos de Estudiantes 2024-2025 &#8212; Formar Innovar · Educational Analytics Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=bb6f747e"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/03_data_analysis/eda_analysis_students/README';</script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" />
+    <link rel="next" title="Análisis de Calificaciones Históricas 2021-2025" href="../eda_grades/README.html" />
+    <link rel="prev" title="Guía Tratamiento de Datos" href="../../01_data_treatment/01_school_recommendations.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../00_introduction/README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/FICC.png" class="logo__image only-light" alt="Formar Innovar · Educational Analytics Project - Home"/>
+    <script>document.write(`<img src="../../../_static/FICC.png" class="logo__image only-dark" alt="Formar Innovar · Educational Analytics Project - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tratamiento de Datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01_data_treatment/01_school_recommendations.html">Guía de Tratamiento de Datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de Datos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Estudiantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_grades/README.html">Calificaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_courses/README.html">Cursos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_dropout/README.html">Retiro de Estudiantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle_behavior/README.html">Uso de Moodle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_teacher_behavior/fusagasuga/README.html">Docentes Fusagasugá</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_teacher_behavior/girardot/README.html">Docentes Girardot</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asignaturas Principales (Con Moodle)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/00_missing_values/README.html">Valores Faltantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/01_features_selection/README.html">Selección de Caracteristicias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/02_statistical_filtering/README.html">Filtrado Estadístico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_moodle/03_data_visualization/README.html">Exploración de los Datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras Asignaturas (Sin Moodle)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/00_missing_values/README.html">Valores Faltantes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/01_features_selection/README.html">Selección de Caracteristicias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/02_statistical_filtering/README.html">Filtrado Estadístico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eda_analysis_no_moodle/03_data_visualization/README.html">Exploración de los Datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análisis Exploratorio de Datos de Estudiantes 2024-2025</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-demografico">1. Análisis Demográfico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-socioeconomico">2. Análisis Socioeconómico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-academico">3. Análisis Académico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-psicologico">4. Análisis Psicológico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="analisis-exploratorio-de-datos-de-estudiantes-2024-2025">
+<h1>Análisis Exploratorio de Datos de Estudiantes 2024-2025<a class="headerlink" href="#analisis-exploratorio-de-datos-de-estudiantes-2024-2025" title="Link to this heading">#</a></h1>
+<section id="resumen">
+<h2>Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
+<p>Este análisis explora las características demográficas, socioeconómicas, académicas y psicológicas de los estudiantes de la institución educativa.</p>
+<p><strong>Sedes:</strong> Fusagasugá, Girardot<br />
+<strong>Total estudiantes:</strong> 364<br />
+<strong>Total variables:</strong> 35<br />
+<strong>Distribución por sede:</strong></p>
+<ul class="simple">
+<li><p>Fusagasugá: 222 estudiantes (61.0%)</p></li>
+<li><p>Girardot: 142 estudiantes (39.0%)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="analisis-demografico">
+<h2>1. Análisis Demográfico<a class="headerlink" href="#analisis-demografico" title="Link to this heading">#</a></h2>
+<p><img alt="Análisis Demográfico" src="../../../_images/analisis_demografico.png" /></p>
+<p>Análisis de las características demográficas de los estudiantes, comparando distribuciones entre sedes.</p>
+<section id="interpretacion">
+<h3>Interpretación<a class="headerlink" href="#interpretacion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Distribución por Sede:</strong> Comparación del número total de estudiantes entre Fusagasugá y Girardot</p></li>
+<li><p><strong>Género por Sede:</strong> Distribución de género (masculino/femenino) en cada sede</p></li>
+<li><p><strong>Año de Ingreso por Sede:</strong> Años de ingreso de estudiantes por año académico</p></li>
+<li><p><strong>Antigüedad por Sede:</strong> Tiempo de permanencia de los estudiantes en la institución</p></li>
+<li><p><strong>Distribución de Edad por Sede:</strong> Histogramas superpuestos mostrando la distribución de edades</p></li>
+<li><p><strong>Enfermedades por Sede:</strong> Estado de salud de los estudiantes (con/sin enfermedades)</p></li>
+</ul>
+</section>
+<section id="conclusiones">
+<h3>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Fusagasugá tiene una matrícula más consolidada o establecida, posiblemente por mayor trayectoria o capacidad operativa.</p></li>
+<li><p>En ambas sedes predomina el género masculino.</p></li>
+<li><p>La mayor parte de los estudiantes ingresó en 2023, año de crecimiento notable en ambas sedes.</p></li>
+<li><p>En ambas sedes predomina la categoría de estudiantes antiguos.</p></li>
+<li><p>En Fusagasugá, la distribución es más amplia, alcanzando edades de 16 a 18 años.</p></li>
+<li><p>En Girardot, la mayoría de estudiantes se concentra entre 8 y 13 años.</p></li>
+<li><p>Los resultados reflejan un estado de salud general favorable. La gran mayoría de estudiantes (más del 85%) no presenta enfermedades</p></li>
+</ul>
+</section>
+</section>
+<section id="analisis-socioeconomico">
+<h2>2. Análisis Socioeconómico<a class="headerlink" href="#analisis-socioeconomico" title="Link to this heading">#</a></h2>
+<p><img alt="Análisis Socioeconómico" src="../../../_images/analisis_socioeconomico.png" /></p>
+<p>Evaluación de las condiciones socioeconómicas de los estudiantes y sus familias, analizando diferencias entre sedes.</p>
+<section id="id1">
+<h3>Interpretación<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Estrato por Sede:</strong> Distribución de estratos socioeconómicos (1-6) en cada sede</p></li>
+<li><p><strong>Tipo de Vivienda por Sede:</strong> Tipos de vivienda donde residen los estudiantes</p></li>
+<li><p><strong>Zona de Vivienda por Sede:</strong> Ubicación geográfica de las viviendas (urbana/rural)</p></li>
+<li><p><strong>Medio de Transporte por Sede:</strong> Medios de transporte utilizados para llegar a la institución</p></li>
+<li><p><strong>Número de Hermanos por Sede:</strong> Tamaño de las familias de los estudiantes</p></li>
+<li><p><strong>Composición Familiar por Sede:</strong> Estructura familiar de los estudiantes</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Conclusiones<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>La mayoría de los estudiantes pertenecen a los estratos 2 y 3.</p></li>
+<li><p>Los estratos 1, 5 y 6 son minoritarios.</p></li>
+<li><p>En Fusagasugá, predomina la vivienda alquilada, con un porcentaje ligeramente menor de vivienda propia.</p></li>
+<li><p>En Girardot, la mayoría de los estudiantes residen en vivienda propia.</p></li>
+<li><p>Ambas sedes presentan fuerte concentración urbana.</p></li>
+<li><p>El transporte privado es el más utilizado, aunque Girardot presenta más diversidad de medios de transporte.</p></li>
+<li><p>Las familias tienden a ser pequeñas o medianas, con un promedio de 1 a 2 hijos.</p></li>
+<li><p>Predominan los núcleos familiares completos o extendidos, lo que sugiere buen nivel de acompañamiento familiar.</p></li>
+</ul>
+</section>
+</section>
+<section id="analisis-academico">
+<h2>3. Análisis Académico<a class="headerlink" href="#analisis-academico" title="Link to this heading">#</a></h2>
+<p><img alt="Análisis Académico" src="../../../_images/analisis_academico.png" /></p>
+<p>Evaluación del desempeño y características académicas de los estudiantes, incluyendo hábitos de estudio y proyecciones vocacionales.</p>
+<section id="id3">
+<h3>Interpretación<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Horas de Estudio por Sede:</strong> Distribución de horas semanales dedicadas al estudio en casa</p></li>
+<li><p><strong>Interés en Estudios Superiores por Sede:</strong> Nivel de interés en continuar estudios universitarios</p></li>
+<li><p><strong>Actividades Extracurriculares por Sede:</strong> Participación en actividades fuera del currículo académico</p></li>
+<li><p><strong>Proyección Vocacional por Sede:</strong> Aspiraciones profesionales y vocacionales de los estudiantes</p></li>
+<li><p><strong>Participación en Clase por Sede:</strong> Nivel de participación activa en las clases</p></li>
+<li><p><strong>Nivel de Motivación por Sede:</strong> Grado de motivación académica de los estudiantes</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Conclusiones<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>En ambas sedes, la mayoría de los estudiantes dedica menos de 10 horas semanales al estudio fuera del aula.</p></li>
+<li><p>Hay algunos casos atípicos con más de 30 horas de estudio en casa.</p></li>
+<li><p>El interés por la educación superior es alto en ambas sedes, ligeramente superior en Girardot. Esto sugiere expectativas positivas hacia la continuidad educativa.</p></li>
+<li><p>Las actividades deportivas son las más populares en ambas sedes.</p></li>
+<li><p>Se observa una limitada oferta o interés en áreas culturales y tecnológicas, lo cual podría explorarse para fortalecer habilidades complementarias.</p></li>
+<li><p>Las vocaciones se orientan principalmente a carreras deportivas y STEM, con menor interés en áreas artísticas o sociales.</p></li>
+<li><p>Los niveles bajos en participación en clase son minoritarios, lo que indica una buena dinámica participativa general.</p></li>
+<li><p>En general, los estudiantes se muestran motivados, especialmente en Fusagasugá. Girardot presenta una proporción mayor de estudiantes con motivación baja, lo que sugiere necesidad de refuerzo emocional o pedagógico.</p></li>
+</ul>
+</section>
+</section>
+<section id="analisis-psicologico">
+<h2>4. Análisis Psicológico<a class="headerlink" href="#analisis-psicologico" title="Link to this heading">#</a></h2>
+<p><img alt="Análisis Psicológico" src="../../../_images/analisis_psicologico.png" /></p>
+<p>Evaluación de aspectos psicológicos y socioemocionales que influyen en el desarrollo académico de los estudiantes.</p>
+<section id="id5">
+<h3>Interpretación<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Nivel de Motivación por Sede:</strong> Distribución de los niveles de motivación académica</p></li>
+<li><p><strong>Apoyo Familiar por Sede:</strong> Percepción del apoyo familiar en el proceso educativo</p></li>
+<li><p><strong>NEE por Sede:</strong> Necesidades Educativas Especiales de los estudiantes</p></li>
+<li><p><strong>Demuestra Confianza por Sede:</strong> Nivel de confianza demostrado por los estudiantes</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Conclusiones<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>La mayoría de los estudiantes manifiesta una actitud positiva hacia el estudio, especialmente en Fusagasugá, aunque en Girardot se observa ligeramente menor y más estudiantes con bajo nivel de motivación.</p></li>
+<li><p>Se muestra una base sólida de apoyo familiar en ambas sedes.</p></li>
+<li><p>Existe una baja incidencia de estudiantes con necesidades educativas especiales, ligeramente mayor en Girardot.</p></li>
+<li><p>La mayoría de los estudiantes muestra niveles moderados o altos de autoconfianza, especialmente en Fusagasugá. En Girardot, aunque los niveles de confianza son más variados.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/03_data_analysis/eda_analysis_students"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../01_data_treatment/01_school_recommendations.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Guía Tratamiento de Datos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../eda_grades/README.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Análisis de Calificaciones Históricas 2021-2025</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-demografico">1. Análisis Demográfico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-socioeconomico">2. Análisis Socioeconómico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-academico">3. Análisis Académico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Conclusiones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-psicologico">4. Análisis Psicológico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Interpretación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Data Analytics Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright © 2025 Formar Innovar.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
