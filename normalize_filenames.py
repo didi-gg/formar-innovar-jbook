@@ -26,9 +26,9 @@ for dirpath, _, filenames in os.walk(root_dir):
                     print(f"✅ Renamed: {filename} → {clean_name}")
                     count += 1
                 except OSError as e:
-                    print(f"❌ Error renaming {filename}: {e}")
+                    print(f"Error renaming {filename}: {e}")
             else:
-                print(f"⚠️  File already exists: {clean_name}")
+                print(f"File already exists: {clean_name}")
 
 print(f"\nTotal files renamed: {count}")
 print("\n🔧 Files renamed successfully! Now update your README files to use the new filenames.")
